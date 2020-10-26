@@ -99,9 +99,6 @@ abstract class AbstractSamlModel implements SamlElementInterface
 
         foreach ($value as $object) {
             if ($object instanceof SamlElementInterface) {
-                if ($nodeName) {
-                    throw new \LogicException('nodeName should not be specified when serializing array of SamlElementInterface');
-                }
                 $object->serialize($node, $context);
             } elseif ($nodeName) {
                 if ($namespaceUri) {
